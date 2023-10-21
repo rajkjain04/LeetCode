@@ -1,3 +1,4 @@
+import java.security.KeyPair;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ class Solution {
 
         for (int r = 0; r < ROWS; r++) {
             for (int c = 0; c < COLS; c++) {
-                if ("1".compareTo(String.valueOf(grid[r][c])) == 0) {
+                if (grid[r][c] == '1') {
                     numberOfIslands += 1;
                     dfs(grid, r, c);
                 }
@@ -24,12 +25,11 @@ class Solution {
         int ROWS = grid.length;
         int COLS = grid[0].length;
 
-        if (r < 0 || r == ROWS || c < 0 || c == COLS || "0".compareTo(String.valueOf(grid[r][c])) == 0) {
+        if (r < 0 || r == ROWS || c < 0 || c == COLS || grid[r][c] == '0') {
             return;
         }
-        
+
         grid[r][c] = '0';
-        
 
         dfs(grid,r + 1, c);
         dfs(grid, r - 1, c);
