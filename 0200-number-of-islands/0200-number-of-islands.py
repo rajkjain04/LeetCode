@@ -15,26 +15,26 @@ class Solution:
                 
             return True 
             
-        def bfs(r, c):
+        def dfs(r, c):
             visit.add((r, c))
-            queue = [] 
+            stack = [] 
             
-            queue.append((r, c))
+            stack.append((r, c))
                    
-            while queue:
-                r, c = queue.pop(0)
+            while stack:
+                r, c = stack.pop()
                 neighbours = [(r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)]
 
                 for nx, ny in neighbours:
                     if isValid(nx, ny):
                         visit.add((nx, ny))
-                        queue.append((nx, ny))
+                        stack.append((nx, ny))
                 
         for r in range(ROWS):
             for c in range(COLS):
                 if grid[r][c] == "1" and (r,c) not in visit:
                     islands += 1 
-                    bfs(r, c)
+                    dfs(r, c)
                     
         return islands 
         
