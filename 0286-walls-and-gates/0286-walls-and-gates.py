@@ -3,35 +3,46 @@ class Solution:
         """
         Do not return anything, modify rooms in-place instead.
         """
-        def addRoom(r, c):
-            if r < 0 or r == ROWS or c < 0 or c == COLS or (r, c) in visit or rooms[r][c] == -1 or rooms[r][c] == 0:
-                return 
-            
-            visit.add((r, c))
-            queue.append((r, c))
         
         ROWS, COLS = len(rooms), len(rooms[0])
         visit = set() 
-        queue = deque() 
+        queue = [] 
         
         for r in range(ROWS):
             for c in range(COLS):
                 if rooms[r][c] == 0:
-                    queue.append([r, c])
-                    visit.add((r, c))
+                    queue.append((r, c))
+        
+        def isValid(r, c):
+            if (r < 0 or r == ROWS or c < 0 or c == COLS or (r, c) in visit) or (rooms[r][c] == -1 or rooms[r][c] == 0):
+                return False 
+            
+            return True 
         
         dist = 0 
+        
         while queue:
             for i in range(len(queue)):
-                r, c = queue.popleft() 
+                r, c = queue.pop(0)
                 rooms[r][c] = dist 
-                addRoom(r + 1, c)
-                addRoom(r - 1, c)
-                addRoom(r, c + 1)
-                addRoom(r, c - 1)
+                neighbours = [(r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)]
+                
+                for nx, ny in neighbours:
+                    if isValid(nx, ny):
+                        visit.add((nx, ny))
+                        queue.append((nx, ny))
+            
+            dist += 1 
                 
                 
-            dist += 1
-        
-        
-        
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
