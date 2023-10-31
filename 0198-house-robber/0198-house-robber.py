@@ -1,22 +1,18 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
         
-        cache = {} 
+        if len(nums) == 1:
+            return nums[0] 
         
-        def helper(i, cache): 
-            
-            if i >= len(nums):
-                return 0 
-            
-            if i in cache:
-                return cache[i]
-            
-            left = nums[i] + helper(i + 2, cache)
-            right = helper(i + 1, cache)
-            
-            cache[i] = max(left, right)
-            
-            return cache[i]
+        dp = [0] * len(nums)
+        dp[0] = nums[0] 
+        dp[1] = max(dp[0], nums[1])
         
-        return helper(0, cache)
+        i = 2 
+        
+        while i <= len(nums) - 1: 
             
+            dp[i] = max(nums[i] + dp[i - 2], dp[i - 1])
+            i += 1 
+            
+        return max(dp[-1], dp[-2])
