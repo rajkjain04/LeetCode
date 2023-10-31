@@ -15,4 +15,4 @@ class Solution:
             dp[i] = max(nums[i] + dp[i - 2], dp[i - 1])
             i += 1 
             
-        return max(dp[-1], dp[-2])
+        return dp[-1]
