@@ -4,27 +4,29 @@ class Solution:
         hash_map = {} 
         output = [] 
         
-        
-        for s in strs: 
+        for s in strs:
             
             count = [0] * 26 
             
             for i in s:
-                index = ord(i) - ord('a') 
-                count[index] += 1 
+                value = ord(i) - ord('a') 
+                count[value] += 1 
                 
-            tup = tuple(count) 
+            tup = tuple(count)
             
             if tup not in hash_map:
-                hash_map[tup] = [s] 
+                hash_map[tup] = [s]
                 
-            else: 
+            else:
                 hash_map[tup].append(s)
                 
         for key, value in hash_map.items():
             output.append(value)
             
-        return output 
+        return output
+                
+            
+            
             
             
             
