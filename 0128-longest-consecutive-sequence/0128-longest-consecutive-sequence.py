@@ -7,9 +7,7 @@ class Solution:
         for item in nums:
             if item not in unique:
                 unique.add(item)
-        
-        print(unique)
-        
+                
         for item in unique:
             sequence_count = 1 
             if item - 1 in unique and item + 1 not in unique:
