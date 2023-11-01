@@ -18,12 +18,10 @@ class Solution:
                 return False 
             
             else:
+                if storage[t[j]] == 0:
+                    return False 
                 storage[t[j]] -= 1 
                 
-        for key, value in storage.items():
-            if value != 0:
-                return False 
-            
         return True 
             
             
