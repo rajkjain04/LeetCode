@@ -4,32 +4,23 @@ class Solution:
         if s == "":
             return 0 
         
-        charSet = set() 
+        seen = set() 
         L = 0 
         R = 1 
-        maxLen = 1 
-        charSet.add(s[L])
+        seen.add(s[L]) 
+        maxLen = len(seen) 
         
-        while R <= len(s) - 1:
-            
-            if s[R] not in charSet:
-                charSet.add(s[R]) 
+        while R <= len(s) - 1: 
+            if s[R] not in seen:
+                seen.add(s[R])
+                maxLen = max(len(seen), maxLen)
                 R += 1 
-                maxLen = max(len(charSet), maxLen)
                 
-            
-            else:
-                maxLen = max(len(charSet), maxLen)
-                
-                while s[R] in charSet: 
-                    charSet.remove(s[L])
+            else: 
+                maxLen = max(len(seen), maxLen) 
+                while s[R] in seen: 
+                    seen.remove(s[L]) 
                     L += 1 
-                
-                    
-        return maxLen
-                
-                
-            
-            
         
-        
+        return maxLen 
+                 
