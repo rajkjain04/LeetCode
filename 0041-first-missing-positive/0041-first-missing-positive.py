@@ -9,6 +9,7 @@ class Solution:
         
         i = 1 
         while i in unique:
+            unique.remove(i)
             i += 1 
             
         return i 
