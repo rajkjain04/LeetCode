@@ -5,22 +5,21 @@ class Solution:
             return 0 
         
         seen = set() 
+        maxLen = 0 
         L = 0 
-        R = 1 
-        seen.add(s[L]) 
-        maxLen = len(seen) 
+        R = 0 
         
-        while R <= len(s) - 1: 
+        while R <= len(s) - 1:
             if s[R] not in seen:
                 seen.add(s[R])
-                maxLen = max(len(seen), maxLen)
+                maxLen = max(maxLen, len(seen))
                 R += 1 
-                
+            
             else: 
-                maxLen = max(len(seen), maxLen) 
-                while s[R] in seen: 
+                while s[R] in seen:
                     seen.remove(s[L]) 
-                    L += 1 
-        
+                    L += 1     
+            
         return maxLen 
+   
                  
