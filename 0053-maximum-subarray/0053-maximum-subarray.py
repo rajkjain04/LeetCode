@@ -4,10 +4,18 @@ class Solution:
         prevSum = 0 
         maxSum = nums[0]
         
-        for n in nums:
-            prevSum = max(prevSum, 0)
-            prevSum += n  
-            maxSum = max(maxSum, prevSum) 
+        L = 0 
+        R = 0 
+        
+        while R <= len(nums) - 1:
+            prevSum += nums[R] 
+            maxSum = max(prevSum, maxSum)
+            
+            if prevSum < 0:
+                prevSum = 0 
+                L = R + 1 
+                
+            R += 1 
             
         return maxSum 
-        
+            
