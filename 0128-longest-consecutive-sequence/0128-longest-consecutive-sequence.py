@@ -8,13 +8,10 @@ class Solution:
             if item not in unique:
                 unique.add(item)
                 
-        for i in range(0, len(nums)):
-            
+        for item in unique:
             newSequence = 0 
-            
-            if nums[i] - 1 not in unique:
+            if item - 1 not in unique:
                 newSequence += 1
-                item = nums[i]
                 while item + 1 in unique:
                     newSequence += 1 
                     item += 1 
