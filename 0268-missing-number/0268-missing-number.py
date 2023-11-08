@@ -1,12 +1,9 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         
-        unique = set() 
-        
-        for item in nums:
-            unique.add(item) 
-            
+        expected = 0 
         for i in range(len(nums) + 1):
-            if i not in unique:
-                return i 
-        
+            expected += i 
+            
+        return expected - sum(nums)
+            
