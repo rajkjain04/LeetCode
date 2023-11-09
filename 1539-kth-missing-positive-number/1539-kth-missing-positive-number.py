@@ -1,23 +1,10 @@
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
         
-        unique = set(arr) 
-        
-        last_number = arr[-1]
-        
-        final = 0 
-        number = 0 
-        i = 1
-        
-        while True:
-            if i not in unique: 
-                final += 1 
-                number = i 
+        for i in range(0, len(arr)):
+            if arr[i] <= k:
+                k += 1 
+            else:
+                break 
                 
-            if final == k:
-                return number 
-            
-            i += 1
-            
-        return number 
-        
+        return k 
