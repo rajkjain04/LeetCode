@@ -5,6 +5,6 @@ class Solution:
             if arr[i] <= k:
                 k += 1 
             else:
-                break 
-                
+                return k  
+        
         return k 
