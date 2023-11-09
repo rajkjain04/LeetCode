@@ -1,18 +1,15 @@
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
         
-        unique = set() 
+        sorted_nums = sorted(nums)
         
-        for item in nums:
-            if item not in unique and item > 0:
-                unique.add(item)
-                
-                
-        j = 1 
+        j = 1
         
-        while j in unique:
-            j += 1 
-        
-        
+        for i in range(0, len(sorted_nums)):
+            if sorted_nums[i] == j:
+                j += 1 
+            
+            elif sorted_nums[i] > j:
+                return j 
+            
         return j 
-        
