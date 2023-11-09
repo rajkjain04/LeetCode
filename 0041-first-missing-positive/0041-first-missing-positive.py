@@ -4,7 +4,7 @@ class Solution:
         unique = set() 
         
         for item in nums:
-            if item not in unique:
+            if item not in unique and item > 0:
                 unique.add(item)
                 
                 
