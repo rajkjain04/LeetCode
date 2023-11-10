@@ -15,11 +15,10 @@ class Solution:
                 return cache[i]
             
             left = helper(i + 1, cache)
-            cache[i + 1] = left
             right = helper(i + 2, cache)
-            cache[i + 2] = right
+            cache[i] = left + right
             
-            return left + right 
+            return cache[i]
         
         return helper(0, cache)
             
