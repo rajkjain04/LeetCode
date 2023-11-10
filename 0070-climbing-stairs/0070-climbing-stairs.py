@@ -1,26 +1,21 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
         
-        cache = {}
+        dp = [0,0]
         
-        def helper(i, cache):
-            
-            if i == n:
-                return 1 
-            
-            if i > n:
-                return 0 
-            
-            if i in cache:
-                return cache[i]
-            
-            left = helper(i + 1, cache)
-            right = helper(i + 2, cache)
-            cache[i] = left + right
-            
-            return cache[i]
+        dp[0] = 1 
+        dp[1] = 1 
         
-        return helper(0, cache)
+        i = 2 
+        
+        while i <= n:
+            tmp = dp[0] 
+            dp[0] = dp[1] 
+            dp[1] += tmp 
+            i += 1 
+            
+        return dp[1]
+            
             
             
             
