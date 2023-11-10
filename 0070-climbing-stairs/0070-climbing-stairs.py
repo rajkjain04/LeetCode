@@ -3,7 +3,7 @@ class Solution:
         
         cache = {}
         
-        def helper(i, n, cache):
+        def helper(i, cache):
             
             if i == n:
                 return 1 
@@ -14,17 +14,14 @@ class Solution:
             if i in cache:
                 return cache[i]
             
-            left = helper(i + 1, n, cache)
-            right = helper(i + 2, n, cache)
+            left = helper(i + 1, cache)
+            cache[i + 1] = left
+            right = helper(i + 2, cache)
+            cache[i + 2] = right
             
-            cache[i] = left + right 
+            return left + right 
+        
+        return helper(0, cache)
             
-            return cache[i]
-        
-        return helper(0, n, cache)
             
-        
-        
-        
-         
-        
+            
