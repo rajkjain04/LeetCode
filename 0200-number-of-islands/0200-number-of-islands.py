@@ -21,8 +21,8 @@ class Solution:
             visit.add((r, c))
             
             while queue:
-                row, col = queue.pop(0) 
-                neighbours = [(row + 1, col), (row - 1, col), (row, col + 1), (row, col - 1)]
+                r, c = queue.pop(0) 
+                neighbours = [(r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)]
                 
                 for nx, ny in neighbours:
                     if isValid(nx, ny):
