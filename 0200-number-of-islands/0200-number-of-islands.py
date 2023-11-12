@@ -18,7 +18,6 @@ class Solution:
         def bfs(r, c):
             queue = [] 
             queue.append((r, c))
-            visit.add((r, c))
             
             while queue:
                 r, c = queue.pop(0) 
