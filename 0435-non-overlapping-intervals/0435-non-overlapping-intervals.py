@@ -7,9 +7,7 @@ class Solution:
         intervals = sorted(intervals)
         
         last = intervals[0]
-        
-        print(intervals)
-        
+                
         for i in range(1, len(intervals)):
             current = intervals[i] 
             
