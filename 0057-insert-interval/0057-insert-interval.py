@@ -9,7 +9,7 @@ class Solution:
         elif newInterval[0] <= intervals[0][0]:
             intervals.insert(0, newInterval)
             
-        elif newInterval[0] > intervals[-1][0]:
+        elif newInterval[0] >= intervals[-1][0]:
             intervals.insert(len(intervals), newInterval)
              
         else: 
