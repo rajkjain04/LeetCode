@@ -10,6 +10,7 @@ class Solution:
         stack = [] 
         output = [] 
         curr = root 
+        n = 0 
         
         while curr or stack != []:
             while curr:
@@ -18,6 +19,9 @@ class Solution:
                 
             curr = stack.pop() 
             output.append(curr.val) 
+            n += 1 
+            if (n == k):
+                return output[-1]
             curr = curr.right 
             
         return output[k - 1]
