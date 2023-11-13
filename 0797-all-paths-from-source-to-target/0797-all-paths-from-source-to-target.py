@@ -4,8 +4,8 @@ class Solution:
         res = [] 
         self.graph = {} 
         
-        for i, edge in enumerate(graph):
-            self.graph[i] = edge
+        for i in range(len(graph)):
+            self.graph[i] = graph[i]
             
         def dfs(curr_path, curr_node): 
             if (curr_node) == len(self.graph) - 1:
