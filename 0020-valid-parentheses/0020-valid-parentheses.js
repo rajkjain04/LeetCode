@@ -5,7 +5,7 @@ var isValid = function (s) {
 
   const leftBrackets = new Set(["[", "{", "("]);
   const stack = [];
-
+    
   for (let i = 0; i < s.length; i++) {
     const character = s[i];
 
