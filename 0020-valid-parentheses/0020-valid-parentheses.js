@@ -17,7 +17,8 @@ var isValid = function (s) {
       }
 
       const lastElement = stack[stack.length - 1];
-      if ((lastElement === "[" && character === "]") || (lastElement === "(" && character === ")") || (lastElement === "{" && character === "}")) {
+      if ((lastElement === "[" && character === "]") || (lastElement === "(" && character === ")") || (lastElement === "{" && character === "}")
+      ) {
         stack.pop();
       } else {
         return false;
