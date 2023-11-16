@@ -3,32 +3,26 @@ var isValid = function (s) {
     return false;
   }
 
-  const set = new Set(["[", "{", "("]);
+  const leftBrackets = new Set(["[", "{", "("]);
   const stack = [];
 
   for (let i = 0; i < s.length; i++) {
-    const currentElement = s[i];
+    const character = s[i];
 
-    if (set.has(currentElement)) {
-      stack.push(currentElement);
+    if (leftBrackets.has(character)) {
+      stack.push(character);
     } else {
       if (stack.length === 0) {
         return false;
       }
 
       const lastElement = stack[stack.length - 1];
-
-      if (
-        (lastElement === "[" && currentElement === "]") ||
-        (lastElement === "(" && currentElement === ")") ||
-        (lastElement === "{" && currentElement === "}")
-      ) {
+      if ((lastElement === "[" && character === "]") || (lastElement === "(" && character === ")") || (lastElement === "{" && character === "}")) {
         stack.pop();
       } else {
         return false;
       }
     }
   }
-
   return stack.length === 0;
 };
