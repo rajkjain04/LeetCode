@@ -3,20 +3,23 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        output = [0] * len(nums) 
+        # Reverse the entire array 
+        k = k % len(nums)
 
-        # 0 -> 3
-        # 1 -> 4 
-        # 2 -> 5 
-        # 3 -> 6
-        # 4 -> 0 
+        def reverse(nums, leftPointer, rightPointer): 
+            while leftPointer <= rightPointer:
+                tmp = nums[leftPointer]
+                nums[leftPointer] = nums[rightPointer]
+                nums[rightPointer] = tmp
+                leftPointer += 1 
+                rightPointer -= 1 
 
-        for i in range(0, len(nums)):
-            item = nums[i]
-            index = (i + k) % len(nums)
-            output[index] = item 
+            return nums
+
+        nums = reverse(nums, 0, len(nums) - 1)
+        nums = reverse(nums, 0, k - 1)
+        nums = reverse(nums, k, len(nums) - 1)
+
+
         
-        for i in range(0, len(output)):
-            nums[i] = output[i]
-
         
