@@ -3,7 +3,7 @@ class Solution:
 
         # Need to determine the speed k 
 
-        leftPointer = 1 
+        leftPointer = 1
         rightPointer = max(piles)
         minSpeed = float('inf')
 
