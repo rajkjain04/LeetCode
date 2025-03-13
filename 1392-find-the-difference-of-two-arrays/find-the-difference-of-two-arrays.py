@@ -6,14 +6,12 @@ class Solution:
 
         output = [[], []] 
 
-        for num in nums1:
+        for num in uniqueSet1:
             if num not in uniqueSet2:
                 output[0].append(num)
-                uniqueSet2.add(num)
         
-        for num in nums2:
+        for num in uniqueSet2:
             if num not in uniqueSet1:
                 output[1].append(num)
-                uniqueSet1.add(num)
             
         return output 
